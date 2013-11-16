@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <!-- 
+    * Handlebar.js Inline template
+    * This covers the bare basics of Handlebar
+    * ============================
+    *
+    * Author: @mpedriale
+    * email : m.pedriale@mail.com
+    *
+    * This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License 
+    * http://creativecommons.org/licenses/by-sa/3.0/deed.en_US.
+    *
+    * For further reference please look at: http://handlebarsjs.com/
+    -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+    </head>
+    <body>
+        <!-- This is our template definition -->
+        <script id="Handlebars-Template" type="text/x-handlebars-template">
+            
+            {{! This is a Handlebar template comment and will not be in the output }}
+            <!-- This comment will be in the output -->
+
+            <h1>Welcome</h1>
+            <h2>{{title}}</h2>
+
+            {{! Accessing a property of a literal object }}
+            <p>author: {{author.name}}</p>
+            
+        </script>
+        <p>HTML5 Boilerplate.</p>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="./vendor/handlebars-v1.1.2.js"></script>
+        <script>
+            $(function(){
+                var context = {
+                  title: "this is my first Handlebar template!",
+                  author: {
+                    name: "Maurizio Pedriale"
+                  }
+                };
+                //We get the source template and compile it
+                var source = $("#Handlebars-Template").html();
+                var template = Handlebars.compile(source);
+
+                //We get the resulting HTML and inject it into the page
+                var html = template(context);
+                $(document.body).append (html);
+            });
+        </script>
+    </body>
+</html>
